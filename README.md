@@ -30,14 +30,11 @@ is send then a json object is sent to the clint such as {"message":"validation"}
 
 <hr>
 <hr>
-<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
 
 ```
-**Use Case :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;Gets all items from the inventory as a list of json objects
+Use Case :
+    Gets all items from the inventory as a list of json objects
 ```
-
-</blockquote>
 
 <br>
 #### POST /items
@@ -45,23 +42,23 @@ is send then a json object is sent to the clint such as {"message":"validation"}
 <hr>
 <hr>
 
-<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
+```
 
-**Use Case :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;to add a single item in the inventory
+Use Case :
+    to add a single item in the inventory
 this transaction is recored automatically in the inventory
 
-**How to use :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;with the api endpoint in the url
-send a body with a json object which includes fields such as:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.name<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.description<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.quantity
+How to use :
+    with the api endpoint in the url
+    send a body with a json object which includes fields such as:
+        1.name<br>
+        2.description<br>
+        3.quantity
 
-**Validations :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.quantity must be a non-negative integer (sends "invalid value" message)
+Validations :
+    1.quantity must be a non-negative integer (sends "invalid value" message)
 
-</blockquote>
+```
 
 <br>
 
@@ -70,15 +67,15 @@ send a body with a json object which includes fields such as:<br>
 <hr>
 <hr>
 
-<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
+```
 
-**Use Case:**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;to get a single item from the inventory
+Use Case:
+    to get a single item from the inventory
 
-**Validations :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+Validations :
+    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 
-</blockquote>
+```
 
 <br>
 
@@ -87,21 +84,18 @@ send a body with a json object which includes fields such as:<br>
 <hr>
 <hr>
 
-<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
+```Use Case :
+    to update the item in the inventory
+    this transaction is recored automatically in the inventory
 
-**Use Case :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;to update the item in the inventory
-this transaction is recored automatically in the inventory
+    How to Use :
+    The body object should include fields such as name, description, quantity...since this is a "PUT" method
+    all the fields should be included in case of "PATCH" method only partial fields can be include
 
-**How to Use :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;The body object should include fields such as name, description, quantity...since this is a "PUT" method
-all the fields should be included in case of "PATCH" method only partial fields can be include
-
-**Validations :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.quantity must be a non negitive integer (sends "invalid value" message)
-
-</blockquote>
+Validations :
+    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+    2.quantity must be a non negitive integer (sends "invalid value" message)
+```
 
 <br>
 
@@ -110,16 +104,14 @@ all the fields should be included in case of "PATCH" method only partial fields 
 <hr>
 <hr>
 
-<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
+```
+Use Case:
+    to delete the item in the inventory by the id
+    this transaction is recored automatically in the inventory
 
-**Use Case:**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;to delete the item in the inventory by the id
-this transaction is recored automatically in the inventory
-
-**Validations :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
-
-</blockquote>
+Validations :
+    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+```
 
 <br>
 
@@ -132,21 +124,19 @@ this transaction is recored automatically in the inventory
 <hr>
 <hr>
 
-<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
+```
+Use Case:
+    to add the transaction into the inventory
 
-**Use Case:**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;to add the transaction into the inventory
+How to use :
+    the id in the url persisting in the inventory in optional
+the body object must include fields
+        1.type
+        2.quantity
 
-**How to use :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;the id in the url persisting in the inventory in optional
-the body object must include fields<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.type<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.quantity
-
-**Validations :**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
-
-</blockquote>
+Validations :
+    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+```
 
 <br>
 
@@ -155,12 +145,10 @@ the body object must include fields<br>
 <hr>
 <hr>
 
-<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
+```
+Use Case:
+    to get all the transactions that include this id
 
-**Use Case:**<br>
-&nbsp;&nbsp;&nbsp;&nbsp;to get all the transactions that include this id
-
-**Validations :** <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
-
-</blockquote>
+Validations :
+    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+```
