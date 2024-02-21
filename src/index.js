@@ -1,17 +1,17 @@
 const express = require("express")
-require("./db/mongoos")
-const app = express()
-const Items = require("./models/items")
-const  transactionType  = require("./process_helper/helperFunction")
-const Transactions = require("./models/transactions")
+const transactionType  = require("./process_helper/helperFunction")
 const checkid = require("./process_helper/id_checker")
 const checkNumber = require("./process_helper/number_chcker")
-const mongoose = require("mongoose")
 
-port = 3000
+require("./db/mongoos")
 
+const Items = require("./models/items")
+const Transactions = require("./models/transactions")
+
+const app = express()
 app.use(express.json())
 
+port = 3000
 
 app.get("/",(req,res)=>{
     res.send("Home Page")
@@ -58,7 +58,6 @@ app.post('/items',(req,res)=>{
 })
 
 
-
 app.put("/items/:id",(req,res)=>{
     const timestamp = new Date()
     const item = JSON.parse(JSON.stringify(req.body))
@@ -81,6 +80,9 @@ app.put("/items/:id",(req,res)=>{
 
 
 app.delete("/items/:id",(req,res)=>{
+    if(!checkid(req.params.id)){
+        return res.status(404).send({"message":"invalid id"})
+    }
     Items.findByIdAndDelete(req.params.id).then((item)=>{
         if(!item){
             return res.status(404).send({"message":"invalid id"});
@@ -89,6 +91,7 @@ app.delete("/items/:id",(req,res)=>{
         res.send(item);
     })
 })
+
 
 app.post("/items/:id/transaction",(req,res)=>{
     const transaction = new Transactions(req.body);
@@ -119,5 +122,10 @@ app.get("/items/:id/transactions",(req,res)=>{
         res.status(500).send(err);
     })
 })
+
+app.use((req, res, next) => {
+    // Handle 404 - Not Found
+    res.status(404).send({"message":'endpoint not found'});
+});
 
 app.listen(port,(req,res)=>{console.log("listining at port "+port)})
