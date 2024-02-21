@@ -1,8 +1,9 @@
 const express = require("express")
-const transactionType  = require("./process_helper/helperFunction")
+const transactionType  = require("./process_helper/helper_function")
 const checkid = require("./process_helper/id_checker")
 const checkNumber = require("./process_helper/number_chcker")
-const getTimestamp = require("./process_helper/getTimestamp")
+const getTimestamp = require("./process_helper/get_timestamp")
+const getQuantity = require("./process_helper/get_quantity")
 
 require("./db/mongoos")
 
@@ -44,15 +45,12 @@ app.get("/items/:id",(req,res)=>{
     })
 })
 
-app.post('/items',(req,res)=>{
-
+app.post('/items',async (req,res)=>{
     const preprocess = req.body;
     const timestamp = getTimestamp()
-    
     preprocess["timestamp"] = timestamp;
-    if(!(checkNumber(preprocess["quantity"]))){
-        return res.status(404).send(invalidValue)
-    }
+    const quantity =await getQuantity(preprocess["name"],+1);
+    preprocess["quantity"] = quantity+1;
     const item = new Items(preprocess);
     transactionType(item._id,timestamp,"IN");
     item.save().then((item)=>{
@@ -93,6 +91,7 @@ app.delete("/items/:id",(req,res)=>{
         if(!item){
             return res.status(404).send(invalidID);
         }
+        getQuantity(item["name"],-1);
         transactionType(req.params.id,getTimestamp(),"OUT")
         res.send(item);
     })
