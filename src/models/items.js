@@ -2,10 +2,10 @@ const mongoose = require("mongoose")
 
 const itemsSchema = new mongoose.Schema(
     {
-        name : String,
-        description : String,
-        quantity : Number,
-        timestamp : Date
+        name : {type:String, required:true,unique:true},
+        description : {type:String, required:true},
+        quantity : {type:Number,required:true},
+        timestamp : {type: Date,required: true}
     })
 itemsSchema.set('versionKey', false);
 
