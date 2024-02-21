@@ -15,7 +15,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;id : a unique identifier<br>
 &nbsp;&nbsp;&nbsp;&nbsp;name : name of the item<br>
 &nbsp;&nbsp;&nbsp;&nbsp;description : a description of the item<br>
-&nbsp;&nbsp;&nbsp;&nbsp;quantity: the quantity of the item in the inventory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;quantity: the quantity of the item in the inventory with the same name<br>
 &nbsp;&nbsp;&nbsp;&nbsp;timestamp : the lastly updated timestamp (it is generated in the backend)<br>
 
 ### Transaction fields
@@ -60,7 +60,6 @@ How to use :
     send a body with a json object which includes fields such as:
         1.name
         2.description
-        3.quantity
 
 Validations :
     1.quantity must be a non-negative integer (sends "invalid value" message)
@@ -168,3 +167,7 @@ Validations :
 #### ( if none of the end points match the api will send endpoint not found )
 
 #### ( POST, PUT, DELETE methods are being considered as transactions)
+
+#### (while create or deleting an item...quantities of
+
+#### other items with the same name will get incremented or decremented by 1 respectively)
