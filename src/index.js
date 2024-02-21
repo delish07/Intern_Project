@@ -48,7 +48,6 @@ app.post('/items',(req,res)=>{
     const preprocess = req.body;
     const timestamp = getTimestamp()
     preprocess["timestamp"] = timestamp;
-    console.log((checkNumber(preprocess["quantity"])));
     if(!(checkNumber(preprocess["quantity"]))){
         return res.status(404).send(invalidValue)
     }

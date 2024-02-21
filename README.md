@@ -53,7 +53,6 @@ Use Case :
 <hr>
 
 ```
-
 Use Case :
     to add a single item in the inventory
 this transaction is recored automatically in the inventory
@@ -78,7 +77,6 @@ Validations :
 <hr>
 
 ```
-
 Use Case:
     to get a single item from the inventory
 
