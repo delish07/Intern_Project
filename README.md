@@ -30,15 +30,20 @@ is send then a json object is sent to the clint such as {"message":"validation"}
 
 <hr>
 <hr>
+<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
 
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Gets all items from the inventory as a list of json objects
+
+</blockquote>
 
 <br>
 #### POST /items
 
 <hr>
 <hr>
+
+<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
 
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to add a single item in the inventory
@@ -54,6 +59,8 @@ send a body with a json object which includes fields such as:<br>
 **Validations :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;1.quantity must be a non-negative integer (sends "invalid value" message)
 
+</blockquote>
+
 <br>
 
 #### GET /items/:id
@@ -61,11 +68,15 @@ send a body with a json object which includes fields such as:<br>
 <hr>
 <hr>
 
+<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
+
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to get a single item from the inventory
 
 **Validations :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+
+</blockquote>
 
 <br>
 
@@ -73,6 +84,8 @@ send a body with a json object which includes fields such as:<br>
 
 <hr>
 <hr>
+
+<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
 
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to update the item in the inventory
@@ -86,6 +99,8 @@ all the fields should be included in case of "PATCH" method only partial fields 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.quantity must be a non negitive integer (sends "invalid value" message)
 
+</blockquote>
+
 <br>
 
 #### DELETE /items/:id
@@ -93,12 +108,16 @@ all the fields should be included in case of "PATCH" method only partial fields 
 <hr>
 <hr>
 
+<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
+
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to delete the item in the inventory by the id
 this transaction is recored automatically in the inventory
 
 **Validations :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+
+</blockquote>
 
 <br>
 
@@ -110,6 +129,8 @@ this transaction is recored automatically in the inventory
 
 <hr>
 <hr>
+
+<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
 
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to add the transaction into the inventory
@@ -123,6 +144,8 @@ the body object must include fields<br>
 **Validations :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 
+</blockquote>
+
 <br>
 
 #### GET /items/:id/transactions
@@ -130,8 +153,12 @@ the body object must include fields<br>
 <hr>
 <hr>
 
+<blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
+
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to get all the transactions that include this id
 
 **Validations :** <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+
+</blockquote>
