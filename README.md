@@ -2,6 +2,14 @@
 
 ## Models
 
+### dependencies Used:
+
+&nbsp;&nbsp;&nbsp;&nbsp;1."express": "^4.18.2" (RESTAPI)
+&nbsp;&nbsp;&nbsp;&nbsp;2."mongoose": "^8.1.3" (DATABASE)
+&nbsp;&nbsp;&nbsp;&nbsp;"3."nodemon": "^3.0.3" (EASY NODE)
+
+###
+
 ### Item fields
 
 &nbsp;&nbsp;&nbsp;&nbsp;id : a unique identifier<br>
@@ -10,10 +18,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;quantity: the quantity of the item in the inventory<br>
 &nbsp;&nbsp;&nbsp;&nbsp;timestamp : the lastly updated timestamp (it is generated in the backend)<br>
 
-### Validations Rules
+### Validations Rules<br>
 
-    Validations are checked by the server and if any incorrect format
-    is send then a json object is sent to the clint such as {"message":"validation"}
+Validations are checked by the server and if any incorrect format
+is send then a json object is sent to the clint such as {"message":"validation"}
 
 <center><h2>Methods involving Item</h2></center>
 
