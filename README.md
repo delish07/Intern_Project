@@ -29,6 +29,7 @@ is send then a json object is sent to the clint such as {"message":"validation"}
 
 <hr>
 <hr>
+<br>
 
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Gets all items from the inventory as a list of json objects
@@ -37,6 +38,7 @@ is send then a json object is sent to the clint such as {"message":"validation"}
 
 <hr>
 <hr>
+<br>
 
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to add a single item in the inventory
@@ -56,6 +58,7 @@ send a body with a json object which includes fields such as:<br>
 
 <hr>
 <hr>
+<br>
 
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to get a single item from the inventory
@@ -67,6 +70,7 @@ send a body with a json object which includes fields such as:<br>
 
 <hr>
 <hr>
+<br>
 
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to update the item in the inventory
@@ -84,6 +88,7 @@ all the fields should be included in case of "PATCH" method only partial fields 
 
 <hr>
 <hr>
+<br>
 
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to delete the item in the inventory by the id
@@ -98,6 +103,7 @@ this transaction is recored automatically in the inventory
 
 <hr>
 <hr>
+<br>
 
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to add the transaction into the inventory
@@ -115,6 +121,7 @@ the body object must include fields<br>
 
 <hr>
 <hr>
+<br>
 
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to get all the transactions that include this id
