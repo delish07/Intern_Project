@@ -60,8 +60,8 @@ this transaction is recored automatically in the inventory
 How to use :
     with the api endpoint in the url
     send a body with a json object which includes fields such as:
-        1.name<br>
-        2.description<br>
+        1.name
+        2.description
         3.quantity
 
 Validations :
