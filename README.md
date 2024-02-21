@@ -18,6 +18,14 @@
 &nbsp;&nbsp;&nbsp;&nbsp;quantity: the quantity of the item in the inventory<br>
 &nbsp;&nbsp;&nbsp;&nbsp;timestamp : the lastly updated timestamp (it is generated in the backend)<br>
 
+### Transaction fields
+
+&nbsp;&nbsp;&nbsp;&nbsp;id: a unique identifier (different from item id)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;item_id : item id<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type : transaction happened in or out<br>
+&nbsp;&nbsp;&nbsp;&nbsp;quantity : no.of items involed in the transaction<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timestamp : the timestamp at which the transaction occured (it is generated in the backedn)<br>
+
 ### Validations Rules<br>
 
 Validations are checked by the server and if any incorrect format
@@ -92,7 +100,7 @@ Use Case :
     to update the item in the inventory
     this transaction is recored automatically in the inventory
 
-    How to Use :
+How to Use :
     The body object should include fields such as name, description,quantity
     since this is a "PUT" method all the fields should be included,
     in case of "PATCH" method only partial fields can be include
@@ -137,13 +145,15 @@ Use Case:
 
 How to use :
     the id in the url persisting in the inventory in optional
-the body object must include fields
+    the body object must include fields
         1.type
         2.quantity
 
 Validations :
     1.id in the url must be a mangodbID
     and it should persist in the inventory (sends "invalid id" message)
+    2.type must be either "IN" or "OUT"
+    (sends "type should be either IN or OUT" message)
 ```
 
 <br>
