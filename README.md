@@ -73,7 +73,8 @@ Use Case:
     to get a single item from the inventory
 
 Validations :
-    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+    1.id in the url must be a mangodbID
+    and it should persist in the inventory (sends "invalid id" message)
 
 ```
 
@@ -84,7 +85,8 @@ Validations :
 <hr>
 <hr>
 
-```Use Case :
+```
+Use Case :
     to update the item in the inventory
     this transaction is recored automatically in the inventory
 
@@ -93,7 +95,8 @@ Validations :
     all the fields should be included in case of "PATCH" method only partial fields can be include
 
 Validations :
-    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+    1.id in the url must be a mangodbID
+    and it should persist in the inventory (sends "invalid id" message)
     2.quantity must be a non negitive integer (sends "invalid value" message)
 ```
 
@@ -110,7 +113,8 @@ Use Case:
     this transaction is recored automatically in the inventory
 
 Validations :
-    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+    1.id in the url must be a mangodbID
+    and it should persist in the inventory (sends "invalid id" message)
 ```
 
 <br>
@@ -135,7 +139,8 @@ the body object must include fields
         2.quantity
 
 Validations :
-    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+    1.id in the url must be a mangodbID
+    and it should persist in the inventory (sends "invalid id" message)
 ```
 
 <br>
@@ -150,5 +155,6 @@ Use Case:
     to get all the transactions that include this id
 
 Validations :
-    1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+    1.id in the url must be a mangodbID
+    and it should persist in the inventory (sends "invalid id" message)
 ```
