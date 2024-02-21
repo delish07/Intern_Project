@@ -14,6 +14,8 @@ app.use(express.json())
 
 port = 3000
 
+const invalidID = {"message":"invalid id"}
+
 app.get("/",(req,res)=>{
     res.send("Home Page")
 })
@@ -29,11 +31,11 @@ app.get("/items",async (req,res)=>{
 
 app.get("/items/:id",(req,res)=>{
     if(!(checkid(req.params.id))){
-        return res.status(404).send({"message":"invald id"})
+        return res.status(404).send(invalidID)
     }
     Items.findById(req.params.id).then((item)=>{
         if(!item){
-            return res.status(404).send({"message":"invalid id"});
+            return res.status(404).send(invalidID);
         }
         res.status(200).send(item);
     }).catch((err)=>{
@@ -62,7 +64,7 @@ app.put("/items/:id",(req,res)=>{
     const timestamp = getTimestamp()
     const item = JSON.parse(JSON.stringify(req.body))
     if(!(checkid(req.params.id))){
-        return res.status(404).send({"message":"invalid id"})
+        return res.status(404).send(invalidID)
     }
     if(!checkNumber(item["quantity"])){
         return res.status(404).send({"message":"invalid value"})
@@ -72,7 +74,7 @@ app.put("/items/:id",(req,res)=>{
     Items.findByIdAndUpdate(req.params.id,item,{new : true})
     .then((item)=>{
         if(!item){
-            return res.status(404).send({"message":"invalid id"});
+            return res.status(404).send(invalidID);
         }
         res.status(200).send(item);
     })
@@ -83,11 +85,11 @@ app.put("/items/:id",(req,res)=>{
 
 app.delete("/items/:id",(req,res)=>{
     if(!checkid(req.params.id)){
-        return res.status(404).send({"message":"invalid id"})
+        return res.status(404).send(invalidID)
     }
     Items.findByIdAndDelete(req.params.id).then((item)=>{
         if(!item){
-            return res.status(404).send({"message":"invalid id"});
+            return res.status(404).send(invalidID);
         }
         transactionType(req.params.id,getTimestamp(),"OUT")
         res.send(item);
@@ -98,12 +100,12 @@ app.delete("/items/:id",(req,res)=>{
 
 app.get("/items/:id/transactions",(req,res)=>{
     if(!checkid(req.params.id)){
-        return res.status(404).send({"message":"invalid id"})
+        return res.status(404).send(invalidID)
     }
     Transactions.find({item_id:req.params.id})
     .then((item)=>{
         if(!item){
-            res.status(404).send({"message":"invalid id"})
+            res.status(404).send(invalidID)
         }
         res.status(200).send(item);
     })
@@ -122,7 +124,7 @@ app.post("/items/:id/transactions",(req,res)=>{
         return res.status(404).send({"message":"type should be either IN or OUT"})
     }
     if(!(checkid(req.params.id))){
-        return res.status(404).send({"message":"invalid id"})
+        return res.status(404).send(invalidID)
     }
     transaction["item_id"] = req.params.id;
     transaction["timestamp"] = getTimestamp();
