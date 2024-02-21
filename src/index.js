@@ -31,7 +31,6 @@ app.get("/items",(req,res)=>{
     Items.find({})
     .then((items)=>{
         res.status(200).send(items)
-        getAllHelper(items);
     })
     .catch((err)=>{
         res.status(500).send(err);
