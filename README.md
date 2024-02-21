@@ -26,6 +26,7 @@ is send then a json object is sent to the clint such as {"message":"validation"}
 <center><h2>Methods involving Item</h2></center>
 
 <br>
+
 #### GET /items
 
 <hr>
@@ -37,6 +38,7 @@ Use Case :
 ```
 
 <br>
+
 #### POST /items
 
 <hr>
@@ -91,8 +93,9 @@ Use Case :
     this transaction is recored automatically in the inventory
 
     How to Use :
-    The body object should include fields such as name, description, quantity...since this is a "PUT" method
-    all the fields should be included in case of "PATCH" method only partial fields can be include
+    The body object should include fields such as name, description,quantity
+    since this is a "PUT" method all the fields should be included,
+    in case of "PATCH" method only partial fields can be include
 
 Validations :
     1.id in the url must be a mangodbID
