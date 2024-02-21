@@ -32,8 +32,10 @@ is send then a json object is sent to the clint such as {"message":"validation"}
 <hr>
 <blockquote style="background-color: #f4f4f4; border-left: 6px solid #ddd; padding: 10px;">
 
+```
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Gets all items from the inventory as a list of json objects
+```
 
 </blockquote>
 
