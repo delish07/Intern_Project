@@ -25,20 +25,20 @@ is send then a json object is sent to the clint such as {"message":"validation"}
 
 <center><h2>Methods involving Item</h2></center>
 
+<br>
 #### GET /items
 
 <hr>
 <hr>
-<br>
 
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;Gets all items from the inventory as a list of json objects
 
+<br>
 #### POST /items
 
 <hr>
 <hr>
-<br>
 
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to add a single item in the inventory
@@ -54,11 +54,12 @@ send a body with a json object which includes fields such as:<br>
 **Validations :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;1.quantity must be a non-negative integer (sends "invalid value" message)
 
+<br>
+
 #### GET /items/:id
 
 <hr>
 <hr>
-<br>
 
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to get a single item from the inventory
@@ -66,11 +67,12 @@ send a body with a json object which includes fields such as:<br>
 **Validations :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 
+<br>
+
 #### PUT /items/:id
 
 <hr>
 <hr>
-<br>
 
 **Use Case :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to update the item in the inventory
@@ -84,11 +86,12 @@ all the fields should be included in case of "PATCH" method only partial fields 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.quantity must be a non negitive integer (sends "invalid value" message)
 
+<br>
+
 #### DELETE /items/:id
 
 <hr>
 <hr>
-<br>
 
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to delete the item in the inventory by the id
@@ -97,13 +100,16 @@ this transaction is recored automatically in the inventory
 **Validations :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 
+<br>
+
 <center><h2>Methods involving transactions</h2></center>
+
+<br>
 
 #### POST /items/:id/transactions
 
 <hr>
 <hr>
-<br>
 
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to add the transaction into the inventory
@@ -117,11 +123,12 @@ the body object must include fields<br>
 **Validations :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 
+<br>
+
 #### GET /items/:id/transactions
 
 <hr>
 <hr>
-<br>
 
 **Use Case:**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;to get all the transactions that include this id
