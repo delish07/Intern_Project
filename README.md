@@ -173,3 +173,11 @@ Validations :
 #### quantities of other items with the same name will get
 
 #### incremented or decremented by 1 respectively)
+
+### i have done this version cause i thought id cant be same with two objects
+
+### so this is a version which holds no.of items with same name as quantity
+
+### if this is not prefered then the version which quantities are as id which
+
+### is usually one and doesnt update much is in branch "previous"
