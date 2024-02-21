@@ -24,7 +24,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;item_id : item id<br>
 &nbsp;&nbsp;&nbsp;&nbsp;type : transaction happened in or out<br>
 &nbsp;&nbsp;&nbsp;&nbsp;quantity : no.of items involed in the transaction<br>
-&nbsp;&nbsp;&nbsp;&nbsp;timestamp : the timestamp at which the transaction occured (it is generated in the backedn)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timestamp : the timestamp at which the transaction occured (it is generated in the backend)<br>
 
 ### Validations Rules<br>
 
