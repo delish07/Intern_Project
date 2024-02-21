@@ -4,11 +4,11 @@
 
 ### Item fields
 
-id : a unique identifier<br>
-name : name of the item<br>
-description : a description of the item<br>
-quantity: the quantity of the item in the inventory<br>
-timestamp : the lastly updated timestamp (it is generated in the backend)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;id : a unique identifier<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name : name of the item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;description : a description of the item<br>
+&nbsp;&nbsp;&nbsp;&nbsp;quantity: the quantity of the item in the inventory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;timestamp : the lastly updated timestamp (it is generated in the backend)<br>
 
 ### Validations Rules
 
@@ -23,7 +23,7 @@ timestamp : the lastly updated timestamp (it is generated in the backend)<br>
 <hr>
 
 **Use Case :**<br>
-Gets all items from the inventory as a list of json objects
+&nbsp;&nbsp;&nbsp;&nbsp;Gets all items from the inventory as a list of json objects
 
 #### POST /items
 
@@ -31,18 +31,18 @@ Gets all items from the inventory as a list of json objects
 <hr>
 
 **Use Case :**<br>
-to add a single item in the inventory
+&nbsp;&nbsp;&nbsp;&nbsp;to add a single item in the inventory
 this transaction is recored automatically in the inventory
 
 **How to use :**<br>
-with the api endpoint in the url
+&nbsp;&nbsp;&nbsp;&nbsp;with the api endpoint in the url
 send a body with a json object which includes fields such as:<br>
-1.name<br>
-2.description<br>
-3.quantity
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.description<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.quantity
 
 **Validations :**<br>
-1.quantity must be a non-negative integer (sends "invalid value" message)
+&nbsp;&nbsp;&nbsp;&nbsp;1.quantity must be a non-negative integer (sends "invalid value" message)
 
 #### GET /items/:id
 
@@ -50,10 +50,10 @@ send a body with a json object which includes fields such as:<br>
 <hr>
 
 **Use Case:**<br>
-to get a single item from the inventory
+&nbsp;&nbsp;&nbsp;&nbsp;to get a single item from the inventory
 
 **Validations :**<br>
-1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 
 #### PUT /items/:id
 
@@ -61,16 +61,16 @@ to get a single item from the inventory
 <hr>
 
 **Use Case :**<br>
-to update the item in the inventory
+&nbsp;&nbsp;&nbsp;&nbsp;to update the item in the inventory
 this transaction is recored automatically in the inventory
 
 **How to Use :**<br>
-The body object should include fields such as name, description, quantity...since this is a "PUT" method
+&nbsp;&nbsp;&nbsp;&nbsp;The body object should include fields such as name, description, quantity...since this is a "PUT" method
 all the fields should be included in case of "PATCH" method only partial fields can be include
 
 **Validations :**<br>
-1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
-2.quantity must be a non negitive integer (sends "invalid value" message)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.quantity must be a non negitive integer (sends "invalid value" message)
 
 #### DELETE /items/:id
 
@@ -78,11 +78,11 @@ all the fields should be included in case of "PATCH" method only partial fields 
 <hr>
 
 **Use Case:**<br>
-to delete the item in the inventory by the id
+&nbsp;&nbsp;&nbsp;&nbsp;to delete the item in the inventory by the id
 this transaction is recored automatically in the inventory
 
 **Validations :**<br>
-1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 
 <center><h3>Methods involving transactions</h3></center>
 
@@ -92,16 +92,16 @@ this transaction is recored automatically in the inventory
 <hr>
 
 **Use Case:**<br>
-to add the transaction into the inventory
+&nbsp;&nbsp;&nbsp;&nbsp;to add the transaction into the inventory
 
 **How to use :**<br>
-the id in the url persisting in the inventory in optional
+&nbsp;&nbsp;&nbsp;&nbsp;the id in the url persisting in the inventory in optional
 the body object must include fields<br>
-1.type<br>
-2.quantity
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.type<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.quantity
 
 **Validations :**<br>
-1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 
 #### GET /items/:id/transactions
 
@@ -109,7 +109,7 @@ the body object must include fields<br>
 <hr>
 
 **Use Case:**<br>
-to get all the transactions that include this id
+&nbsp;&nbsp;&nbsp;&nbsp;to get all the transactions that include this id
 
 **Validations :** <br>
-1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
