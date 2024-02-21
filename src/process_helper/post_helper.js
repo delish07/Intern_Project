@@ -9,7 +9,7 @@ const Transactions = require("../models/transactions")
     })
     transaction.save().then()
     .catch((err)=>{
-        res.status(400).send();
+        res.status(400).send(err);
     })
 }
 

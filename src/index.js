@@ -3,7 +3,8 @@ require("./db/mongoos")
 const app = express()
 const Items = require("./models/items")
 const  postTransaction  = require("./process_helper/post_helper")
-
+const getAll = require("./process_helper/getALL_helper")
+const { get } = require("mongoose")
 
 port = 3000
 
@@ -27,14 +28,15 @@ app.post('/items',(req,res)=>{
     })
 })
 
-app.get("/items",(req,res)=>{
-    Items.find({})
-    .then((items)=>{
-        res.status(200).send(items)
-    })
-    .catch((err)=>{
+app.get("/items",async (req,res)=>{
+    try{
+        const items = await Items.find({})
+        getAll(items);
+        res.status(200).send(items);
+        
+    }catch(err){
         res.status(500).send(err);
-    })
+    }
 })
 
 
