@@ -15,6 +15,7 @@ app.use(express.json())
 port = 3000
 
 const invalidID = {"message":"invalid id"}
+const invalidValue = {"message":"invalid value"}
 
 app.get("/",(req,res)=>{
     res.send("Home Page")
@@ -49,7 +50,7 @@ app.post('/items',(req,res)=>{
     preprocess["timestamp"] = timestamp;
     console.log((checkNumber(preprocess["quantity"])));
     if(!(checkNumber(preprocess["quantity"]))){
-        return res.status(404).send({"message":"invalid value"})
+        return res.status(404).send(invalidValue)
     }
     const item = new Items(preprocess);
     transactionType(item._id,timestamp,"IN");
@@ -67,7 +68,7 @@ app.put("/items/:id",(req,res)=>{
         return res.status(404).send(invalidID)
     }
     if(!checkNumber(item["quantity"])){
-        return res.status(404).send({"message":"invalid value"})
+        return res.status(404).send(invalidValue)
     }
     item["timestamp"] = timestamp
     transactionType(req.params.id,timestamp,"IN");
@@ -118,7 +119,7 @@ app.get("/items/:id/transactions",(req,res)=>{
 app.post("/items/:id/transactions",(req,res)=>{
     const transaction = new Transactions(req.body);
     if(!(checkNumber(transaction["quantity"]))){
-        return res.status(404).send({"message":"invalid value"})
+        return res.status(404).send(invalidValue)
     }
     if(!(transaction["type"]=="IN" || transaction["type"]=="OUT")){
         return res.status(404).send({"message":"type should be either IN or OUT"})
