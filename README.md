@@ -168,6 +168,8 @@ Validations :
 
 #### ( POST, PUT, DELETE methods are being considered as transactions)
 
-#### (while create or deleting an item...quantities of
+#### (while creating or deleting an item...
 
-#### other items with the same name will get incremented or decremented by 1 respectively)
+#### quantities of other items with the same name will get
+
+#### incremented or decremented by 1 respectively)
