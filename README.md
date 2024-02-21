@@ -38,7 +38,6 @@ is send then a json object is sent to the clint such as {"message":"validation"}
 #### GET /items
 
 <hr>
-<hr>
 
 ```
 Use Case :
@@ -49,7 +48,6 @@ Use Case :
 
 #### POST /items
 
-<hr>
 <hr>
 
 ```
@@ -74,7 +72,6 @@ Validations :
 #### GET /items/:id
 
 <hr>
-<hr>
 
 ```
 Use Case:
@@ -90,7 +87,6 @@ Validations :
 
 #### PUT /items/:id
 
-<hr>
 <hr>
 
 ```
@@ -114,7 +110,6 @@ Validations :
 #### DELETE /items/:id
 
 <hr>
-<hr>
 
 ```
 Use Case:
@@ -134,7 +129,6 @@ Validations :
 
 #### POST /items/:id/transactions
 
-<hr>
 <hr>
 
 ```
@@ -159,7 +153,6 @@ Validations :
 #### GET /items/:id/transactions
 
 <hr>
-<hr>
 
 ```
 Use Case:
@@ -169,3 +162,9 @@ Validations :
     1.id in the url must be a mangodbID
     and it should persist in the inventory (sends "invalid id" message)
 ```
+
+### note:-
+
+#### ( if none of the end points match the api will send endpoint not found )
+
+#### ( POST, PUT, DELETE methods are being considered as transactions)
