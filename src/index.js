@@ -2,6 +2,7 @@ const express = require("express")
 const transactionType  = require("./process_helper/helperFunction")
 const checkid = require("./process_helper/id_checker")
 const checkNumber = require("./process_helper/number_chcker")
+const getTimestamp = require("./process_helper/getTimestamp")
 
 require("./db/mongoos")
 
@@ -22,7 +23,7 @@ app.get("/items",async (req,res)=>{
         const items = await Items.find({})
         res.status(200).send(items);
     }catch(err){
-        res.status(500).send(err);
+        res.status(500).send(err.name);
     }
 })
 
@@ -36,33 +37,35 @@ app.get("/items/:id",(req,res)=>{
         }
         res.status(200).send(item);
     }).catch((err)=>{
-        res.status(500).send(err);
+        res.status(500).send(err.name);
     })
 })
 
 app.post('/items',(req,res)=>{
     const preprocess = req.body;
-    timestamp = new Date()
+    const timestamp = getTimestamp()
     preprocess["timestamp"] = timestamp;
     console.log((checkNumber(preprocess["quantity"])));
     if(!(checkNumber(preprocess["quantity"]))){
-        return res.status(404).send({"message":"cast error"})
+        return res.status(404).send({"message":"invalid value"})
     }
     const item = new Items(preprocess);
     transactionType(item._id,timestamp,"IN");
     item.save().then((item)=>{
         res.status(201).send(item);
     }).catch((err)=>{
-        res.status(400).send(err);
+        res.status(400).send(err.name);
     })
 })
 
-
 app.put("/items/:id",(req,res)=>{
-    const timestamp = new Date()
+    const timestamp = getTimestamp()
     const item = JSON.parse(JSON.stringify(req.body))
-    if(!(checkid(req.params.id)) || !checkNumber(item["quantity"]) ){
-        return res.status(404).send({"message":"invalid query"})
+    if(!(checkid(req.params.id))){
+        return res.status(404).send({"message":"invalid id"})
+    }
+    if(!checkNumber(item["quantity"])){
+        return res.status(404).send({"message":"invalid value"})
     }
     item["timestamp"] = timestamp
     transactionType(req.params.id,timestamp,"IN");
@@ -74,10 +77,9 @@ app.put("/items/:id",(req,res)=>{
         res.status(200).send(item);
     })
     .catch((err)=>{
-        res.status(500).send(err);
+        res.status(500).send(err.name);
     })
 })
-
 
 app.delete("/items/:id",(req,res)=>{
     if(!checkid(req.params.id)){
@@ -87,30 +89,17 @@ app.delete("/items/:id",(req,res)=>{
         if(!item){
             return res.status(404).send({"message":"invalid id"});
         }
-        transactionType(req.params.id,new Date(),"OUT")
+        transactionType(req.params.id,getTimestamp(),"OUT")
         res.send(item);
     })
 })
 
 
-app.post("/items/:id/transaction",(req,res)=>{
-    const transaction = new Transactions(req.body);
-    if(!(checkid(req.params.id))){
-        res.status(404).send({"message":"invalid id"})
-    }
-    transaction["item_id"] = req.params.id;
-    transaction["timestamp"] = new Date();
-    transaction.save()
-    .then((transaction)=>{
-        res.status(200).send(transaction)
-    })
-    .catch((err)=>{
-        res.status(500).send(err);
-    })
-})
-
 
 app.get("/items/:id/transactions",(req,res)=>{
+    if(!checkid(req.params.id)){
+        return res.status(404).send({"message":"invalid id"})
+    }
     Transactions.find({item_id:req.params.id})
     .then((item)=>{
         if(!item){
@@ -119,7 +108,30 @@ app.get("/items/:id/transactions",(req,res)=>{
         res.status(200).send(item);
     })
     .catch((err)=>{
-        res.status(500).send(err);
+        res.status(500).send(err.name);
+    })
+})
+
+
+app.post("/items/:id/transactions",(req,res)=>{
+    const transaction = new Transactions(req.body);
+    if(!(checkNumber(transaction["quantity"]))){
+        return res.status(404).send({"message":"invalid value"})
+    }
+    if(!(transaction["type"]=="IN" || transaction["type"]=="OUT")){
+        return res.status(404).send({"message":"type should be either IN or OUT"})
+    }
+    if(!(checkid(req.params.id))){
+        return res.status(404).send({"message":"invalid id"})
+    }
+    transaction["item_id"] = req.params.id;
+    transaction["timestamp"] = getTimestamp();
+    transaction.save()
+    .then((transaction)=>{
+        res.status(200).send(transaction)
+    })
+    .catch((err)=>{
+        res.status(500).send(err.name);
     })
 })
 
