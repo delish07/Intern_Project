@@ -15,7 +15,7 @@
     Validations are checked by the server and if any incorrect format
     is send then a json object is sent to the clint such as {"message":"validation"}
 
-<center><h3>Methods involving Item</h3></center>
+<center><h2>Methods involving Item</h2></center>
 
 #### GET /items
 
@@ -84,7 +84,7 @@ this transaction is recored automatically in the inventory
 **Validations :**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.id in the url must be a mangodbID and it should persist in the inventory (sends "invalid id" message)
 
-<center><h3>Methods involving transactions</h3></center>
+<center><h2>Methods involving transactions</h2></center>
 
 #### POST /items/:id/transactions
 
